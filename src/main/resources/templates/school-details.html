@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head}"></head>
+<body>
+<header th:replace="~{fragments/navbar}"></header>
+<main id="main-content" class="container">
+    <article class="card">
+        <h1 th:text="${school.label}">Название школы</h1>
+        <dl>
+            <dt>Количество курсов</dt>
+            <dd th:text="${school.countCourse}">0</dd>
+            
+            <dt>Рейтинг</dt>
+            <dd>
+                <span th:text="${#numbers.formatDecimal(school.rating, 1, 1)}">0.0</span>
+            </dd>
+            
+            <dt>Описание</dt>
+            <dd th:text="${school.description}">Описание школы</dd>
+        </dl>
+    </article>
+    <br>
+    <a th:href="@{/schools}">Вернуться к списку</a>
+</main>
+<footer th:replace="~{fragments/footer}"></footer>
+</body>
+</html>
